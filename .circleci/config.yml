@@ -6,7 +6,9 @@ jobs:
       image: ubuntu-1604:201903-01
     steps:
       - checkout
-      - run: ( ./printtest.sh & echo $! >&3 ) 3>pid | ./test.sh
+      - run:
+          name: Test
+          command: ( ./printtest.sh & echo $! >&3 ) 3>pid | ./monitor.sh
       - run: echo "made it out"
 
   
